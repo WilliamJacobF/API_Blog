@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Api extends Model
 {
     protected $fillable = [
-        'Titulo',
+        'titulo',
         'texto',
     ];
 }
