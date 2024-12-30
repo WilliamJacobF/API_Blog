@@ -12,22 +12,14 @@ class ApiController extends Controller
         return Api::all();
     }
     public function store(Request $request){
-        $validated = $request->validate([
-            'titulo' => 'required|string|max:200',
-            'texto' => 'required|string',
-        ]);
-        Api::create($validated);
+        Api::create($request->all());
     }
     public function show($id){
         return Api::findOrfail($id);
     }
     public function update(Request $request, $id){
-        $validated = $request->validate([
-            'titulo' => 'required|string|max:200',
-            'texto' => 'required|string',
-        ]);
         $blog = Api::findOrFail($id);
-        $blog->update($validated);
+        $blog->update($request->all());
     }
     public function destroy($id){
         $blog = Api::findOrFail($id);
